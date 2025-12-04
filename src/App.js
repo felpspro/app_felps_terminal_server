@@ -9,17 +9,8 @@ db(true);
 
 const app = express();
 
-// middlewares devem ficar no app, não no server
-app.use(cors({
-  origin: [
-    'http://localhost:3000',
-    'http://localhost:5173',
-    'https://app.project.felps.cc',
-    'https://app.felps.cc'
-  ],
-  methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
-  allowedHeaders: ['Content-Type', 'Authorization']
-}));
+// middlewares devem ficar no app PARA NAO DAR PROBLEMA NO TERMINAL
+app.use(cors());
 
 app.use(express.json({ limit: '50mb' }));
 app.use(express.raw({ type: 'application/json', limit: '50mb' }));
