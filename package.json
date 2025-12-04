@@ -1,0 +1,31 @@
+{
+  "name": "terminal_server",
+  "type": "module",
+  "packageManager": "yarn@4.4.1",
+  "devDependencies": {
+    "cross-env": "^10.1.0"
+  },
+  "dependencies": {
+    "@aws-sdk/client-s3": "^3.943.0",
+    "axios": "^1.13.2",
+    "cors": "^2.8.5",
+    "dotenv": "^17.2.3",
+    "express": "^5.2.1",
+    "minio": "^8.0.6",
+    "mongoose": "^9.0.0",
+    "multer": "^2.0.2",
+    "nanoid": "^5.1.6",
+    "ws": "^8.18.3"
+  },
+  "scripts": {
+    "start": "node --max-old-space-size=10240 server.js",
+    "dev": "cross-env NODE_ENV=development npx nodemon server.js"
+  },
+  "imports": {
+    "#app": "./src/App.js",
+    "#config": "./src/config/index.js",
+    "#crons/*": "./src/crons/*.js",
+    "#services/*": "./src/services/*.js",
+    "#database/*": "./src/database/*.js"
+  }
+}
