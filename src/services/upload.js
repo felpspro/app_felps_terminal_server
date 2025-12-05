@@ -32,7 +32,7 @@ r.get("/version/:version", async(req,res) => {
         // 
         const data = await FILES.findOne({ isNow:true })
         if(data==null||data.version!=version){
-            res.status(426).json({
+            res.status(200).json({
                 data: {
                     status: 426,
                     version: data.version,
