@@ -26,6 +26,22 @@ r.get('/printers', async(req,res) => {
     }
 })
 
+r.get("/versionNow", async(req,res) => {
+    try {
+        const data = await FILES.findOne({ isNow:true });
+        res.status(200).json({
+            data: {
+                version: data.version,
+                uploadAt: data.createdAt,
+                fileName: data.file.name,
+                fileUrl: data.file.url,
+            }
+        })
+    } catch (error) {
+        res.status(500).json({ message: 'Erro interno. Contate o suporte' })
+    }
+})
+
 r.get("/version/:version", async(req,res) => {
     try {
         const { version } = req.params;
